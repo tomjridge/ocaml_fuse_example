@@ -1,0 +1,28 @@
+* Intro
+
+This implements a directory with a single file "image", backed by file
+ /tmp/store. The file appears to be 100M in size.
+
+* Running fuse filesystem, mounting
+
+Run with:
+
+# -f ~ foreground; 1048756 = 2^20, 1M; allow_other ~ needed if run as
+# user, but losetup as root
+
+# -o max_write=1048576; /mnt/fuse ~ where we want the mount to appear
+./xxx -f -o large_read -o kernel_cache -o big_writes -o splice_write \
+-o splice_read -o splice_move -o allow_other   /mnt/fuse
+
+* Mounting image on loopback
+
+losetup /dev/loop5 /mnt/fuse/image
+
+
+* Make ext filesystem on loop5
+
+sudo mkfs -t ext4 /dev/loop5
+
+* Mount filesystem
+
+sudo mount /dev/loop5 /mnt/tmp2
