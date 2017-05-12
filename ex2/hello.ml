@@ -14,7 +14,7 @@ type op = Read of string * int * int | Write of string * int * int [@@deriving y
 let default_stats = LargeFile.stat "."
 let fname = "image"
 let name = "/" ^ fname
-let backing_file = "/tmp/store"
+let backing_file = "./store"
 let size0 = Int64.(of_int 10 |> mul (of_int 1024) |> mul (of_int 1024))
 let default_creat_mode = 0o666
 
