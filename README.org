@@ -35,3 +35,17 @@ sudo mount /dev/loop5 /mnt/tmp2
 Error: The files /home/tr61/.opam/4.03.0/lib/Fuse/Fuse.cmi
         and /home/tr61/.opam/4.03.0/lib/tjr_btree/btree_api.cmi
         make inconsistent assumptions over interface Result
+
+fixed ? by renaming fuse.result to fuse_result
+
+https://github.com/astrada/ocamlfuse/commit/18c6caf1ae67f64d20ef98eec54f351311baad03
+
+need to update opam
+
+need to pin to ocamlfuse 
+
+opam pin add ocamlfuse https://github.com/astrada/ocamlfuse
+
+Ah! ocamlfuse is already path pinned to my ocamlfuse repo
+
+so can continue
